@@ -7,6 +7,9 @@
 - [ ] Add Health Info CRUD
 - [ ] Add Course Schema
 - [ ] Add Course CRUD
+- [ ] Add Course Registration System
+- [ ] Add Course Grading System
+- [ ] Student/Teacher/Staff Profile
 - [x] Add Student Info Schema
 - [x] Hostel/Guest House Schema
 - [ ] Change File Structure to Modules
@@ -24,3 +27,9 @@ So there could be a guest house module, a user module, a health info module, mes
 
 #### 4:55 PM, 15th March 2024
 Ideally, even the schema should be separated into modules, but as far as i can check, prism does not support this. So, we will have to keep all the schema in one file.
+
+#### 5:13 PM, 15th March 2024
+Separated the code into modules. Now, the code is more modular and easier to maintain.
+
+Thinking of adding a academic module, which could have Courses, Course Info, Conveners, Teachers.
+Course Registration System, Course Grading System.

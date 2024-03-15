@@ -3,6 +3,7 @@ import cors from "cors"
 
 import userRouter from "./src/user";
 import guestHouseRouter from "./src/guestHouse";
+
 import { connectDatabase } from "./src/db/connector.db";
 
 const app = express();
