@@ -21,21 +21,80 @@ enum Role {
 }
 
 model User {
-  id       Int         @id @default(autoincrement())
-  email    String      @unique
-  name     String?
-  password String
-  health   HealthInfo?
-  role     Role        @default(STUDENT)
+  id          Int          @id @default(autoincrement())
+  email       String       @unique
+  name        String?
+  password    String
+  health      HealthInfo?
+  role        Role         @default(STUDENT)
+  studentInfo StudentInfo?
+  Booking     Booking[]
 }
 
 model HealthInfo {
+  id               Int      @id @default(autoincrement())
+  userId           Int      @unique
+  user             User     @relation(fields: [userId], references: [id])
+  weight           Float
+  height           Float
+  bloodType        String
+  emergencyContact String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model StudentInfo {
+  id                     Int      @id @default(autoincrement())
+  userId                 Int      @unique
+  user                   User     @relation(fields: [userId], references: [id])
+  jeemainsRollNo         String   @unique
+  jeeadvRollNo           String   @unique
+  degree                 String
+  branch                 String
+  joiningYear            Int
+  expectedGraduationYear Int
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}
+
+model GuestHouse {
+  id          Int      @id @default(autoincrement())
+  name        String
+  location    String
+  description String
+  rooms       Room[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum RoomStatus {
+  AVAILABLE
+  OCCUPIED
+  UNDER_MAINTENANCE
+}
+
+model Room {
+  id           Int        @id @default(autoincrement())
+  guestHouse   GuestHouse @relation(fields: [guestHouseId], references: [id])
+  guestHouseId Int
+  roomNo       String     @unique
+  roomType     String
+  roomStatus   RoomStatus @default(AVAILABLE)
+  description  String?
+  bookings     Booking[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Booking {
   id        Int      @id @default(autoincrement())
-  userId    Int      @unique
   user      User     @relation(fields: [userId], references: [id])
-  weight    Float
-  height    Float
-  bloodType String
+  userId    Int
+  room      Room     @relation(fields: [roomId], references: [id])
+  roomId    Int
+  checkIn   DateTime
+  checkOut  DateTime
+  confirmed Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
