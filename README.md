@@ -8,7 +8,7 @@ Backend for CUMS (Comprehensive University Management System) made at, Hack It O
 - Uses JWT for authentication
 - Uses PostgreSQL as database
 
-Look at [TODO.md](TODO.md) for a list of features planned, and thoughts.
+Look at [TODO.md](TODO.md) for a list of features planned/implemented, and thoughts ()sort of a blog.
 
 ## Installation
 
