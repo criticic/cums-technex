@@ -5,14 +5,15 @@
 - [x] Add User Roles
 - [x] Add Health Info Schema
 - [ ] Add Health Info CRUD
-- [ ] Add Course Schema
+- [x] Add Course Schema
 - [ ] Add Course CRUD
-- [ ] Add Course Registration System
+- [x] Add Course Registration System
 - [ ] Add Course Grading System
-- [ ] Student/Teacher/Staff Profile
+- [x] Student/Teacher/Staff Profile
 - [x] Add Student Info Schema
 - [x] Hostel/Guest House Schema
 - [ ] Change File Structure to Modules
+- [x] Add Mess Billing System
 
 # Thoughts
 

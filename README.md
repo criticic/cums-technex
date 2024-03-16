@@ -3,7 +3,7 @@
 Backend for CUMS (Comprehensive University Management System) made at, Hack It Out, Technex 2024, IIT BHU.
 
 ## Features
-- Made with TypeScript
+- Made with TypeScript & Bun (a Fast all-in-one JavaScript runtime)
 - Uses Express.js & Prisma ORM
 - Uses JWT for authentication
 - Uses PostgreSQL as database
