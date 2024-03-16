@@ -28,6 +28,7 @@ model User {
   health      HealthInfo?
   role        Role         @default(STUDENT)
   studentInfo StudentInfo?
+  faculty     Faculty?
   Booking     Booking[]
 }
 
@@ -50,7 +51,8 @@ model StudentInfo {
   jeemainsRollNo         String   @unique
   jeeadvRollNo           String   @unique
   degree                 String
-  branch                 String
+  branch                 Branch   @relation(fields: [branchId], references: [id])
+  branchId               Int
   joiningYear            Int
   expectedGraduationYear Int
   createdAt              DateTime @default(now())
@@ -97,4 +99,36 @@ model Booking {
   confirmed Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Branch {
+  id        Int           @id @default(autoincrement())
+  name      String
+  students  StudentInfo[]
+  faculty   Faculty[]
+  courses   Course[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model Faculty {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+  branch    Branch   @relation(fields: [branchId], references: [id])
+  branchId  Int
+  courses   Course[] @relation(name: "CourseFaculty")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Course {
+  id        Int       @id @default(autoincrement())
+  name      String
+  code      String    @unique
+  branch    Branch    @relation(fields: [branchId], references: [id])
+  branchId  Int
+  faculty   Faculty[] @relation(name: "CourseFaculty")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
