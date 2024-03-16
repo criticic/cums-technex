@@ -33,3 +33,8 @@ Separated the code into modules. Now, the code is more modular and easier to mai
 
 Thinking of adding a academic module, which could have Courses, Course Info, Conveners, Teachers.
 Course Registration System, Course Grading System.
+
+#### 6:49 PM, 15th March 2024
+Added the academic module schema, which has course, department, faculty, and student info.
+
+Also added a prototype of billing subsytem, which can be used for mess billing.
