@@ -16,6 +16,13 @@ Backend for CUMS (Comprehensive University Management System) made at, Hack It O
 
 Take a look at the [API Documentation](API_DOCUMENTATION.md) for more details.
 
+## Code Structure
+- `src/` contains the source code
+- index.ts is the entry point
+- initially there was a model, controller, and service for each entity, but it was later changed to a more modular structure
+- now there is a module for each entity, and each module contains a index.ts file containing the routes, and a [name].controller.ts file containing the controller logic
+- the database schema is defined in the [prisma schema file](prisma/schema.prisma)
+
 ## Tech Stack
 - Made with TypeScript & Bun (a Fast all-in-one JavaScript runtime)
 - Uses Express.js & Prisma ORM
